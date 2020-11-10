@@ -3,8 +3,13 @@
 
 int main(void)
 {
+    // Creating variable [name]
     string name;
-    name = get_string("Whats your name?\n");
+    
+    // Requesting string value for variable [name]
+    name = get_string("What's your name?\n");
+    
+    // Displaying variable [name] within preset phrase
     printf("hello, %s\n", name);
 
 }
