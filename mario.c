@@ -8,15 +8,15 @@ int main(void)
     int h;
     do
     {
-         h = get_int("Height:\n");
+        h = get_int("Height:\n");
     }
-          while (h<1 || h>8);
+    while (h < 1 || h > 8);
 
     // Constructing the pyramid
     for (int i = 0; i < h; i++)
     {
         //Creating horizontal spaces
-        for (int s = h-1; s > i; s--)
+        for (int s = h - 1; s > i; s--)
         {
             printf(" ");
         }
