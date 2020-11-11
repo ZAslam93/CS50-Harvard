@@ -57,41 +57,41 @@ int main(void)
     // Printing total count of coins
     if (quarters == 1)
     {
-        printf("%i quarter owed\n" , quarters);
+        printf("%i quarter owed\n", quarters);
     }
     else
     {
-        printf("%i quarters owed\n" , quarters);
+        printf("%i quarters owed\n", quarters);
     }
 
     if (dimes == 1)
     {
-        printf("%i dime owed\n" , dimes);
+        printf("%i dime owed\n", dimes);
     }
     else
     {
-        printf("%i dimes owed\n" , dimes);
+        printf("%i dimes owed\n", dimes);
     }
 
     if (nickels == 1)
     {
-        printf("%i nickel owed\n" , nickels);
+        printf("%i nickel owed\n", nickels);
     }
     else
     {
-        printf("%i nickels owed\n" , nickels);
+        printf("%i nickels owed\n", nickels);
     }
 
-    if (pennies ==1)
+    if (pennies == 1)
     {
-        printf("%i penny owed\n" , pennies);
+        printf("%i penny owed\n", pennies);
     }
     else
     {
-        printf("%i pennies owed\n" , pennies);
+        printf("%i pennies owed\n", pennies);
     }
 
     printf("Optimized coin count:\n");
 
-    printf("%i\n" , quarters + dimes + nickels + pennies);
+    printf("%i\n", quarters + dimes + nickels + pennies);
 }
