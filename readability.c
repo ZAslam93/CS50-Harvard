@@ -41,7 +41,6 @@ int main(void)
     // Computing values [L] and [S]
     float L = (float) Letters * 100 / Words;
     float S = (float) Sentences * 100 / Words;
-    float checki = 0.0588 * L - 0.296 * S - 15.8;
     int index = round(0.0588 * L - 0.296 * S - 15.8);
 
     // Computing CL index, with conditions for extremeties
