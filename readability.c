@@ -17,18 +17,25 @@ int main(void)
     {
         // Counting uppercase and lowercase letters
         if ((int) text[i] >= 65 && (int) text[i] <= 90)
-        Letters++;
+        {
+            Letters++;
+        }
         if ((int) text[i] >= 97 && (int) text[i] <= 122)
-        Letters++;
-
+        {
+            Letters++;
+        }
+        
         // Counting sentences
         if ((int) text[i] == 46 || (int) text[i] == 33 || (int) text[i] == 63)
-        Sentences++;
+        {
+            Sentences++;
+        }
 
         // Counting words
         if ((int) text[i] == 32)
-        Words++;
-
+        {
+            Words++;
+        }
     }
 
     // Computing values [L] and [S]
@@ -38,11 +45,16 @@ int main(void)
     int index = round(0.0588 * L - 0.296 * S - 15.8);
 
     // Computing CL index, with conditions for extremeties
-    //printf("Coleman-Liau readability index:\n");
     if (index >= 16)
-    printf("Grade 16+\n");
-    else if (index <1)
-    printf("Before Grade 1\n");
+    {
+        printf("Grade 16+\n");
+    }
+    else if (index < 1)
+    {
+        printf("Before Grade 1\n");
+    }
     else
-    printf("Grade %i\n" , index);
+    {
+        printf("Grade %i\n", index);
+    }
 }
