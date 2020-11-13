@@ -21,38 +21,38 @@ int main(void)
     // Rounding change owed to nearest cent, then formatting
     int cents = round(m * 100);
 
-   // Iterating coin counting
-   while (cents > 0)
-   {
+    // Iterating coin counting
+    while (cents > 0)
+    {
 
-       // Quarter count
-       while (cents >= 25)
-       {
+        // Quarter count
+        while (cents >= 25)
+        {
             cents = cents - 25;
             quarters++;
-       }
+        }
 
-       // Dime count
-       while (cents >= 10 && cents < 25)
-       {
-           cents = cents - 10;
-           dimes++;
-       }
+        // Dime count
+        while (cents >= 10 && cents < 25)
+        {
+            cents = cents - 10;
+            dimes++;
+        }
 
-       // Nickel count
+        // Nickel count
         while (cents >= 5 && cents < 10)
         {
             cents = cents - 5;
             nickels++;
         }
 
-       // Penny count
-       while (cents >= 1 && cents  < 5)
+        // Penny count
+        while (cents >= 1 && cents  < 5)
         {
             cents = cents - 1;
             pennies++;
         }
-   }
+    }
 
     // Printing total count of coins
     if (quarters == 1)
