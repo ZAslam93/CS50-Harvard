@@ -29,6 +29,7 @@ int main(int argc, string argv[])
         {
             k = k % 26;
         }
+        
         // Encrypting alphabetical characters only
         for (int j = 0, p = strlen(plain); j < p; j++)
         {
@@ -42,7 +43,7 @@ int main(int argc, string argv[])
             else if (islower(plain[j]))
             {
                 plain[j] = ((plain[j] - 97 + k) % 26) + 97;
-                
+
             }
         }
         printf("ciphertext: %s\n", plain);
