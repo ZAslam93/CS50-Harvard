@@ -45,7 +45,8 @@ int main(int argc, string argv[])
                 
             }
         }
-        printf("ciphertext: %s", plain);
+        printf("ciphertext: %s\n", plain);
+        return 0;
     }
     // Error -- no inputs or more than 1 argument on command line
     else
