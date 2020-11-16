@@ -12,15 +12,15 @@ int main(int argc, string argv[])
         for (int i = 0, n = strlen(argv[1]); i < n; i++)
         {
             if (argv[1][i] < 47 || argv[1][i] > 58)
-           {
-               printf("Usage: ./caesar key\n");
-               return 1;
-           }
+            {
+                printf("Usage: ./caesar key\n");
+                return 1;
+            }
         }
 
         // Main program -- Key validated
 
-        // Requesting string [plain] to be encrypted, initializing key [k] and [s]
+        // Requesting string [plain] to be encrypted, initializing key [k]
         string plain = get_string("plaintext: ");
         int k = atoi(argv[1]);
 
@@ -30,25 +30,27 @@ int main(int argc, string argv[])
             k = k % 26;
         }
         // Encrypting alphabetical characters only
-        printf("ciphertext: ");
         for (int j = 0, p = strlen(plain); j < p; j++)
         {
             // Encrypting uppercase characters
             if (isupper(plain[j]))
             {
-                plain[j] = plain[j] + k;
+                plain[j] = ((plain[j] - 65 + k) % 26) + 65;
             }
-            
+
             // Encrypting lowercase characters
             else if (islower(plain[j]))
             {
-                plain[j] = plain[j] + k;
+                plain[j] = ((plain[j] - 97 + k) % 26) + 97;
+                
             }
-            printf("%c" , plain[j]);
         }
+        printf("ciphertext: %s", plain);
     }
     // Error -- no inputs or more than 1 argument on command line
     else
-    printf("Usage: ./caesar key\n");
+    {
+        printf("Usage: ./caesar key\n");
+    }
     return 1;
 }
