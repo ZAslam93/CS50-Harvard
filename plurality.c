@@ -66,7 +66,7 @@ int main(int argc, string argv[])
 // Update vote totals given a new vote
 bool vote(string name)
 {
-    // TODO -- function complete i think....
+    // TODO -- function complete --
     for (int j = 0; j < candidate_count; j++)
     {
         if (strcmp(name, candidates[j].name) == 0)
@@ -81,17 +81,17 @@ bool vote(string name)
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
-    // TODO
-    // Implement a linear search for the maximum
+    // TODO -- function complete --
+    // Implement a linear search for the maximum [max]
     int max = 0;
     for (int k = 0; k < candidate_count; k++)
     {
-        // Setting as maximum
+        // Setting first element as maximum
         // Iterated for each element left of k
         for (int m = k + 1; m < candidate_count; m++)
         {
             if (candidates[max].votes < candidates[max + 1].votes)
-            // New maximum
+                // New maximum
             {
                 max++;
             }
@@ -101,9 +101,9 @@ void print_winner(void)
     for (int n = 0; n < candidate_count; n++)
     {
         if (candidates[n].votes == candidates[max].votes)
-            {
-                printf("%s\n" , candidates[n].name);
-            }
+        {
+            printf("%s\n", candidates[n].name);
+        }
     }
     return;
 }
