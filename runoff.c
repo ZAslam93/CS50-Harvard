@@ -129,12 +129,10 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-    int v = 0;
-    // TODO --function vote (incomplete)--
+    // TODO --function vote (complete)--
     for (int i = 0; i < candidate_count; i++)
     {
-        v++;
-        
+
         if (strcmp(name, candidates[i].name) == 0)
         {
             preferences[voter][rank] = i;
@@ -148,6 +146,17 @@ bool vote(int voter, int rank, string name)
 void tabulate(void)
 {
     // TODO --function tabulate (incomplete)--
+    for (int i = 0; i < voter_count; i++)
+    {
+        for (int j = 0; j < candidate_count; j++)
+        {
+            if (candidates[j].eliminated)
+            {
+                break;
+            }
+            candidates[j].votes++;
+        }
+    }
     return;
 }
 
