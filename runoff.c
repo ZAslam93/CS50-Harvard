@@ -192,7 +192,7 @@ bool print_winner(void)
 // Return the minimum number of votes any remaining candidate has
 int find_min(void)
 {
-    // TODO --function find_min(incomplete)--
+    // TODO --function find_min (COMPLETE!)--
     // Assume candidate[0] is the min
     int minloc = 0;
     for (int j = 0; j < candidate_count; j++)
@@ -202,7 +202,7 @@ int find_min(void)
         {
             minloc++;
         }
-        if (candidates[minloc].votes > candidates[j + 1].votes && !candidates[j +1].eliminated)
+        if (candidates[minloc].votes > candidates[j + 1].votes && !candidates[j + 1].eliminated)
         {
             minloc++;
         }
@@ -214,7 +214,19 @@ int find_min(void)
 // Return true if the election is tied between all candidates, false otherwise
 bool is_tie(int min)
 {
-    // TODO
+    // TODO --function is_tie (incomplete)--
+    for (int j = 0; j < candidate_count; j++)
+    {
+        if (candidates[j].votes == min && !candidates[j].eliminated)
+        {
+            continue;
+        }
+        else
+        {
+            break;
+        }
+        return true;
+    }
     return false;
 }
 
