@@ -202,7 +202,7 @@ int find_min(void)
         {
             minloc++;
         }
-        if (candidates[minloc].votes > candidates[minloc + 1].votes && !candidates[minloc +1].eliminated)
+        if (candidates[minloc].votes > candidates[j + 1].votes && !candidates[j +1].eliminated)
         {
             minloc++;
         }
