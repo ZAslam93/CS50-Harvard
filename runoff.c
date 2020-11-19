@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
-// Inluding header file
+// Inluding header files
+#include <math.h>
 #include <string.h>
 
 // Max voters and candidates
@@ -129,12 +130,13 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-    // TODO --function vote (complete)--
+    // TODO --function vote (COMPLETE!)--
     for (int i = 0; i < candidate_count; i++)
     {
 
         if (strcmp(name, candidates[i].name) == 0)
         {
+            // Assigning the index value 
             preferences[voter][rank] = i;
             return true;
         }
@@ -145,13 +147,14 @@ bool vote(int voter, int rank, string name)
 // Tabulate votes for non-eliminated candidates
 void tabulate(void)
 {
-    // TODO --function tabulate (incomplete)--
+    // TODO --function tabulate (COMPLETE!)--
     for (int i = 0; i < voter_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
         {
             if (!candidates[preferences[i][j]].eliminated)
             {
+                // Incrementing indexed + viable candidate's vote, then leaving loop
                 candidates[preferences[i][j]].votes++;
                 break;
             }
@@ -163,7 +166,25 @@ void tabulate(void)
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
-    // TODO
+    // TODO --function print-winner (incomplete)--
+    int majority;
+    int rem = voter_count % 2;
+    // Treating even and odd vote counts
+    if (rem == 0)
+    {
+        majority = (voter_count / 2) + 1;
+    }
+    else
+    {
+        majority = (int) round((voter_count / 2));
+    }
+    // Checking if any candidate has met majority
+    for (int j = 0; j < candidate_count; j++)
+    {
+        if (candidates[j].votes >= majority)
+        fprintf(stdout, "%s", candidates[j].name);
+        return true;
+    }
     return false;
 }
 
