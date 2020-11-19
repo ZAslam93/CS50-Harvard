@@ -136,7 +136,7 @@ bool vote(int voter, int rank, string name)
 
         if (strcmp(name, candidates[i].name) == 0)
         {
-            // Assigning the index value 
+            // Assigning the index value
             preferences[voter][rank] = i;
             return true;
         }
@@ -168,9 +168,8 @@ bool print_winner(void)
 {
     // TODO --function print-winner (incomplete)--
     int majority;
-    int rem = voter_count % 2;
     // Treating even and odd vote counts
-    if (rem == 0)
+    if ((voter_count % 2) == 0)
     {
         majority = (voter_count / 2) + 1;
     }
