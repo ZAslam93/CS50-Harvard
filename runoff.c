@@ -214,7 +214,7 @@ int find_min(void)
 // Return true if the election is tied between all candidates, false otherwise
 bool is_tie(int min)
 {
-    // TODO --function is_tie (incomplete)--
+    // TODO --function is_tie (COMPLETE!)--
     for (int j = 0; j < candidate_count; j++)
     {
       if (candidates[j].votes != min && !candidates[j].eliminated)
@@ -230,6 +230,13 @@ bool is_tie(int min)
 // Eliminate the candidate (or candidates) in last place
 void eliminate(int min)
 {
-    // TODO
+    // TODO --function eliminate (incomplete)--
+    for (int j = 0; j < candidate_count; j++)
+    {
+        if (candidates[j].votes == min)
+        {
+            candidates[j].eliminated = true;
+        }
+    }
     return;
 }
