@@ -166,7 +166,7 @@ void tabulate(void)
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
-    // TODO --function print-winner (incomplete)--
+    // TODO --function print-winner (COMPLETE!)--
     int majority;
     // Treating even and odd vote counts
     if ((voter_count % 2) == 0)
@@ -182,8 +182,8 @@ bool print_winner(void)
     {
         if (candidates[j].votes >= majority)
         {
-        printf("%s\n", candidates[j].name);
-        return true;
+            printf("%s\n", candidates[j].name);
+            return true;
         }
     }
     return false;
@@ -192,8 +192,23 @@ bool print_winner(void)
 // Return the minimum number of votes any remaining candidate has
 int find_min(void)
 {
-    // TODO
-    return 0;
+    // TODO --function find_min(incomplete)--
+    // Assume candidate[0] is the min
+    int minloc = 0;
+    for (int j = 0; j < candidate_count; j++)
+    {
+        // Checking if our starting min is valid
+        if (candidates[minloc].eliminated)
+        {
+            minloc++;
+        }
+        if (candidates[minloc].votes > candidates[minloc + 1].votes && !candidates[minloc +1].eliminated)
+        {
+            minloc++;
+        }
+    }
+    int min = candidates[minloc].votes;
+    return min;
 }
 
 // Return true if the election is tied between all candidates, false otherwise
