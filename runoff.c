@@ -182,8 +182,10 @@ bool print_winner(void)
     for (int j = 0; j < candidate_count; j++)
     {
         if (candidates[j].votes >= majority)
+        {
         fprintf(stdout, "%s", candidates[j].name);
         return true;
+        }
     }
     return false;
 }
