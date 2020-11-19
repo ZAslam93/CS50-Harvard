@@ -217,15 +217,11 @@ bool is_tie(int min)
     // TODO --function is_tie (incomplete)--
     for (int j = 0; j < candidate_count; j++)
     {
-        if (candidates[j].votes == min)
-        {
-            continue;
-        }
-        else
-        {
-            return false;
-        }
-        return true;
+      if (candidates[j].votes != min && !candidates[j].eliminated)
+      {
+          break;
+      }
+      return true;
     }
     return false;
 }
