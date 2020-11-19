@@ -147,16 +147,15 @@ void tabulate(void)
 {
     // TODO --function tabulate (incomplete)--
     for (int i = 0; i < voter_count; i++)
-    {
-        for (int j = 0; j < candidate_count; j++)
         {
-            if (!candidates[j].eliminated)
+            for (int j = 0; j < candidate_count; j++)
             {
-                candidates[j].votes++;
-                break;
+                if (!candidates[j].eliminated)
+                {
+                    candidates[j].votes++;
+                }
             }
         }
-    }
     return;
 }
 
