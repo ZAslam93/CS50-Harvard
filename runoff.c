@@ -146,16 +146,16 @@ bool vote(int voter, int rank, string name)
 void tabulate(void)
 {
     // TODO --function tabulate (incomplete)--
-    for (int i = 0; i < voter_count; i++)
+    for (int j = 0;  j < candidate_count; j++)
+    {
+        for (int i = 0; i < voter_count; i++)
         {
-            for (int j = 0; j < candidate_count; j++)
+            if(!candidates[j].eliminated)
             {
-                if (!candidates[j].eliminated && j == preferences[i][j])
-                {
-                    candidates[j].votes++;
-                }
+                candidates[preferences[i][j]].votes++;
             }
         }
+    }
     return;
 }
 
