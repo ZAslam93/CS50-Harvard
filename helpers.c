@@ -12,7 +12,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         {
             // Computing the shade of grey for each pixel
             greyvalue = ((image[i][j].rgbtBlue + image[i][j].rgbtGreen +
-            image[i][j].rgbtRed) / 3);
+            image[i][j].rgbtRed) / 3.0);
             // Setting each pixel to equal shade
             image[i][j].rgbtBlue = greyvalue;
             image[i][j].rgbtGreen = greyvalue;
