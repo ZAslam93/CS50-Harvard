@@ -61,17 +61,17 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-// Reflect image horizontally
+// Reflect image horizontally --function COMPLETE--
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     // Initializing [temp]
     RGBTRIPLE temp[height][width];
-    
+
     for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < (int) round(width /2); j++)
+        for (int j = 0; j < (int) round(width / 2); j++)
         {
-            
+
             // Swapping pixel values using temp
             temp[i][j] = image[i][j];
             image[i][j] = image[i][width - (j + 1)];
@@ -79,10 +79,45 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 
         }
     }
+    return;
 }
 
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    // Initializing [orig], [totalred/green/blue] and [counter]
+    RGBTRIPLE orig[height][width];
+    int totalred;
+    int totalgreen;
+    int totalblue;
+    int counter;
+
+
+    // Copying image data into orig
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            orig[i][j] = image[i][j];
+        }
+    }
+
+    for (i = 0; i < height; i++)
+    {
+        for (j = 0; j < width; j++)
+        {
+            // Resetting counts to 0 for each pixel
+            totalred = 0;
+            totalgreen = 0;
+            totalblue = 0;
+            counter = 0;
+
+            // Top left
+            if ((i - 1) >= 0 || (j - 1) >= 0)
+            {
+                totalred += orig[i - 1][j-1].rgbtRed
+            }
+        }
+    }
     return;
 }
