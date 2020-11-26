@@ -102,9 +102,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
-    for (i = 0; i < height; i++)
+    for (int i = 0; i < height; i++)
     {
-        for (j = 0; j < width; j++)
+        for (int j = 0; j < width; j++)
         {
             // Resetting counts to 0 for each pixel
             totalred = 0;
@@ -112,11 +112,26 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             totalblue = 0;
             counter = 0;
 
-            // Top left
-            if ((i - 1) >= 0 || (j - 1) >= 0)
+            // Iterating height/width transformations
+            for (int k = -1; k < 2; k ++)
             {
-                totalred += orig[i - 1][j-1].rgbtRed
+                for (int s = -1; s < 2; s++)
+                {
+                    // Ensuring pixel is in bounds
+                     if ((i + k) >= 0 && (i + k) < height && (j + s) >= 0 && (j + s) < width)
+                     {
+                         totalred += orig[i + k][j + s].rgbtRed;
+                         totalgreen += orig[i + k][j + s].rgbtGreen;
+                         totalblue += orig[i + k][j + s].rgbtBlue;
+                         counter++;
+                     }
+                }
             }
+
+            // Substituting RGB values
+            image[i][j].rgbtRed = round(totalred / counter);
+            image[i][j].rgbtGreen = round(totalgreen / counter);
+            image[i][j].rgbtBlue = round(totalblue / counter);
         }
     }
     return;
