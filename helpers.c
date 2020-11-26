@@ -118,13 +118,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 for (int s = -1; s < 2; s++)
                 {
                     // Ensuring pixel is in bounds
-                     if ((i + k) >= 0 && (i + k) < height && (j + s) >= 0 && (j + s) < width)
-                     {
-                         totalred += orig[i + k][j + s].rgbtRed;
-                         totalgreen += orig[i + k][j + s].rgbtGreen;
-                         totalblue += orig[i + k][j + s].rgbtBlue;
-                         counter++;
-                     }
+                    if ((i + k) >= 0 && (i + k) < height && (j + s) >= 0 && (j + s) < width)
+                    {
+                        totalred += orig[i + k][j + s].rgbtRed;
+                        totalgreen += orig[i + k][j + s].rgbtGreen;
+                        totalblue += orig[i + k][j + s].rgbtBlue;
+                        counter++;
+                    }
                 }
             }
 
