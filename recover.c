@@ -48,7 +48,6 @@ int main(int argc, char *argv[])
                 img = fopen(filename, "w");
                 fwrite(buffer, sizeof(BYTE), CHUNK_SIZE, img);
                 file1 = 1;
-                fcounter++;
                 free(filename);
             }
 
@@ -60,9 +59,9 @@ int main(int argc, char *argv[])
                 sprintf(filename, "%03i.jpg", fcounter);
                 img = fopen(filename, "w");
                 fwrite(buffer, sizeof(BYTE), CHUNK_SIZE, img);
-                fcounter++;
                 free(filename);
             }
+            fcounter++;
         }
         // Continue writing if JPG signatures undetected
         else if (file1 == 1)
