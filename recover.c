@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
     char *filename;
     FILE *img = NULL;
     char eof;
+    int read;
 
     // Ensure proper usage
     if (argc != 2)
@@ -33,9 +34,13 @@ int main(int argc, char *argv[])
     }
 
     // Reading file to buffer until EOF
-    while (!feof(raw))
+    while (1)
     {
-        fread(buffer, sizeof(BYTE), CHUNK_SIZE, raw);
+        read = fread(buffer, sizeof(BYTE), CHUNK_SIZE, raw);
+        if (read == 0)
+        {
+            break;
+        }
 
         // If JPG signatures identified
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
@@ -66,7 +71,7 @@ int main(int argc, char *argv[])
         // Continue writing if JPG signatures undetected
         else if (file1 == 1)
         {
-            fwrite(buffer, sizeof(BYTE), CHUNK_SIZE, img);
+            fwrite(buffer, sizeof(BYTE), read, img);
         }
 
     }
