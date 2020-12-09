@@ -95,6 +95,8 @@ bool load(const char *dictionary)
 
         // Indexing words, creating nodes for new words
         unsigned int w_Index = hash(word);
+        
+        // First node
         if (table[w_Index] == NULL)
         {
             table[w_Index] = word_node;
