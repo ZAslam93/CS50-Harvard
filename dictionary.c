@@ -141,7 +141,9 @@ bool unload(void)
             free(trav_free);
             trav_free = cursor;
         }
-        return true;
+        
     }
+    
+    return true;
     return false;
 }
