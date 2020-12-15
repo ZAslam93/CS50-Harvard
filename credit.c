@@ -73,7 +73,7 @@ int main(void)
         }
         
         // If cc fails all checks, it is invalid
-        printf("INVALID");
+        printf("INVALID\n");
         return 0;
     }
 }
