@@ -6,11 +6,10 @@ int main(void)
 {
     // Initialization
     int index = 0;
-    int checksum = 0;
+    long checksum = 0;
     long cc = get_long("Enter a valid credit card number: \n");
     long cc_copy = cc;
     long n = 0;
-    int flag = -1;
 
     // Luhn's algorithm
     while (cc > 1)
@@ -64,6 +63,8 @@ int main(void)
         printf("INVALID\n");
         return 0;
     }
+    
+    // If checksum doesn't end with 0, cc is invalid
     else
     {
         printf("INVALID\n");
