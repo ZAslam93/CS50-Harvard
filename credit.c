@@ -32,20 +32,8 @@ int main(void)
         cc = (cc / 10);
     }
 
-    // Checksum evaluation: end program if checksum failed
-    if ((checksum % 10) == 0)
-    {
-        printf("Checksum passed\n");
-        flag = 0;
-    }
-    else
-    {
-        printf("INVALID\n");
-        return 0;
-    }
-
     // If cc passed checksum, analyze what type of card it represents
-    if (flag == 0)
+    if ((checksum % 10) == 0)
     {
         // American Express check
         long cc_amex = (cc_copy / (long) pow(10, 13));
@@ -71,8 +59,13 @@ int main(void)
             printf("VISA\n");
             return 0;
         }
-        
+
         // If cc fails all checks, it is invalid
+        printf("INVALID\n");
+        return 0;
+    }
+    else
+    {
         printf("INVALID\n");
         return 0;
     }
