@@ -71,5 +71,9 @@ int main(void)
             printf("VISA\n");
             return 0;
         }
+        
+        // If cc fails all checks, it is invalid
+        printf("INVALID");
+        return 0;
     }
 }
