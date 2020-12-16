@@ -46,6 +46,10 @@ if ((checksum % 10) == 0):
     if (cc_visa == 4 or cc_visa2 == 4):
         print("VISA")
         sys.exit(0)
+
+    # If cc fails all checks, it is invalid
+    print("INVALID")
+    sys.exit(0)
 else:
     print("INVALID")
     sys.exit(0)
