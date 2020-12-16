@@ -1,15 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-// Include header files
 #include <stdint.h>
-
 typedef uint8_t BYTE;
 #define CHUNK_SIZE 512
 
 int main(int argc, char *argv[])
 {
-    //Defining BYTE, CHUNK_SIZE, initializing [fcounter] [file1] [filename] [*img]
 
+    // Initialization
     int fcounter = 0;
     BYTE buffer[CHUNK_SIZE];
     int file1 = 0;
