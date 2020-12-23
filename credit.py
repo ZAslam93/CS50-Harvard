@@ -21,6 +21,7 @@ while (cc > 1):
             n = n // 10
             n2 = (n % 10)
             n = n1 + n2
+
     checksum += n
     cc = cc // 10
 
@@ -50,6 +51,8 @@ if ((checksum % 10) == 0):
     # If cc fails all checks, it is invalid
     print("INVALID")
     sys.exit(0)
+
+# If checksum doesn't end with 0, cc is invalid
 else:
     print("INVALID")
     sys.exit(0)

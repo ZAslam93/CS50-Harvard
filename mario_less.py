@@ -13,12 +13,12 @@ for i in range(h):
     s = h - 1
     while (s > i):
         s -= 1
-        print(" ", end = "")
+        print(" ", end="")
 
     # Horizontal hashes
     x = 0
     while (x < i):
-        print("#", end = "")
+        print("#", end="")
         x += 1
 
     # Generating a new line (vertical hashes)
