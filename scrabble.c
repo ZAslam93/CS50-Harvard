@@ -18,6 +18,7 @@ int main(void)
     int score1 = compute_score(word1);
     int score2 = compute_score(word2);
 
+    // Print the winner
     if (score1 > score2)
     {
         printf("Player 1 wins!\n");
@@ -38,8 +39,10 @@ int compute_score(string word)
     int score = 0;
     for (int i = 0; i < strlen(word); i++)
     {
+        // If character is alphabetical, derive its point value
         if (isalpha(word[i]))
         {
+            // Update score for each character 
             score += POINTS[toupper(word[i]) - 65];
         }
     }
