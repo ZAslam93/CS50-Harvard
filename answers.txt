@@ -1,15 +1,16 @@
 sort1 uses: Bubble sort
 
-How do you know?: In the best cases, this sort function runs very quickly, but slows down in 
-non-optimal cases.
+How do you know?: In the best cases, this sort function runs very quickly, but slows down in
+non-optimal cases. It's hampered by *big O* of n in those cases.
 
 sort2 uses: Merge sort
 
 How do you know?: Running time for this sort functions seems to follow a log scale.
-Even with larger lists (50000) it seems to sort relatively quickly, but on smaller lists
-it performs well, but not as well as it ought to if theta was n^2 or n.
+Even with larger lists (50000) it seems to sort relatively quickly. On smaller lists
+it performs well, but not as it ought to if *big O* was n^2 or n.
 
 sort3 uses: Selection sort
 
-How do you know?: Does ok with smaller lists, but really slowed down by larger unsorted lists.
-Theta of n^2 causes longer run times.
+How do you know?: Does ok with smaller lists, but slowed down by larger unsorted lists.
+Theta of n^2 causes longer run times. The run times are consistently mediocre, compared to
+the other sort functions.
