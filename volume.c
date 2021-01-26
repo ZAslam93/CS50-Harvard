@@ -39,23 +39,17 @@ int main(int argc, char *argv[])
 
     float factor = atof(argv[3]);
 
-    // TODO: Copy header from input file to output file
+    // Copy header from input file to output file
     fread(header, sizeof(BYTE), 44, input);
     fwrite(header, sizeof(BYTE), 44, output);
-    
+
+    //
     // Read, write until EOF
-    while (1)
+    while (fread(&buffer, sizeof(SAMPLE), 1, input) > 0)
     {
-        int read = fread(&buffer, sizeof(SAMPLE), 1, input);
-        if (read == 0)
-        {
-            break;
-        }
-        
-        // Scaling buffer by factor provided
+        // Scaling buffer by factor provided, writing output
         SAMPLE scaled = buffer * factor;
         fwrite(&scaled, sizeof(SAMPLE), 1, output);
-        
     }
 
     // Close files
