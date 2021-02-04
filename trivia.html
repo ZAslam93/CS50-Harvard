@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="triviastyles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+        function choices()
+        {
+            let t1 = document.querySelectorAll(".MC");
+            for (let i = 0; i < t1.length; i++)
+            {
+                t1[i].addEventListener("click", function()
+                {
+                    if (t1[i].value == "0")
+                    {
+                        t1[i].style.backgroundColor = "Green";
+                        document.querySelector("#Check").innerHTML = "Correct!";
+                    }
+                    else
+                    {
+                        t1[i].style.backgroundColor = "Red";
+                        document.querySelector("#Check").innerHTML = "Incorrect.";
+                    }
+                });
+            }
+        }
+
+        function responses1()
+        {
+            let r1 = document.querySelector(".FR1");
+            r1.addEventListener("click", function()
+            {
+                let answer1 = document.querySelector("#response1");
+                if (answer1.value == "Numenor")
+                {
+                    answer1.style.backgroundColor = "Green";
+                    document.querySelector("#Check1").innerHTML = "Correct!";
+                }
+                else
+                {
+                    answer1.style.backgroundColor = "Red";
+                    document.querySelector("#Check1").innerHTML = "Incorrect.";
+                }
+            });
+        }
+
+        function responses2()
+        {
+            let r2 = document.querySelector(".FR2");
+            r2.addEventListener("click", function()
+            {
+                let answer2 = document.querySelector("#response2");
+                if (answer2.value == "Turambar")
+                {
+                    answer2.style.backgroundColor = "Green";
+                    document.querySelector("#Check2").innerHTML = "Correct!";
+                }
+                else
+                {
+                    answer2.style.backgroundColor = "Red";
+                    document.querySelector("#Check2").innerHTML = "Incorrect.";
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", choices);
+        document.addEventListener("DOMContentLoaded", responses1);
+        document.addEventListener("DOMContentLoaded", responses2);
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Which rock album features references to Tolkien's <i>Lord of the Rings</i>?</h3>
+                        <button class="MC" value="1">Led Zeppelin III</button>
+                        <button class="MC" value="0">Fly by Night</button>
+                        <button class="MC" value="1">Out of our Heads</button>
+                        <button class="MC" value="1">Obscured by Clouds</button>
+                        <button class="MC" value="1">Permanent Waves</button>
+                <h3>Primarily in which country was the <i>Lord of the Rings</i> film trilogy shot?</h3>
+                        <button class="MC" value="1">Ireland</button>
+                        <button class="MC" value="1">Iceland</button>
+                        <button class="MC" value="1">United Kingdom</button>
+                        <button class="MC" value="1">Australia</button>
+                        <button class="MC" value="0">New Zealand</button>
+                <h3>What is the alternative title to Tolkien's <i>The Hobbit</i>?</h3>
+                        <button class="MC" value="0">There and Back Again</button>
+                        <button class="MC" value="1">The War of the Five Armies</button>
+                        <button class="MC" value="1">Bilbo's Tale</button>
+                        <button class="MC" value="1">The Adventure of Bilbo Baggins</button>
+                        <button class="MC" value="1">Of Hobbits and Dragons</button>
+                <p id="Check"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>In <i>The Silmarillion</i>, the fall of which ancient kingdom caused The Changing of the World?</h3>
+                    <input type="text" id="response1" placeholder="Submit a response"></input>
+                    <button class="FR1">Submit</button>
+                    <p id="Check1"></p>
+
+                <h3>In <i>The Childrren of Hurin</i>, what name does Turin assume after seeking refuge in Brethil?</h3>
+                    <input type="text" id="response2" placeholder="Submit a response"></input>
+                    <button class="FR2">Submit</button>
+                    <p id="Check2"></p>
+            </div>
+        </div>
+    </body>
+</html>
