@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>KZ's Chess Hub</title>
+    </head>
+    <body>
+        <!-- Bootstrap fulfilled -->
+        <div class="jumbotron">
+        <h1 class="display-4">Hello there</h1>
+        <p class="lead">Welcome to my chess page!</p>
+        </div>
+
+        <div>
+        <img id="left" src="files/knightR.jpg">
+        <img id="right" src="files/knightR.jpg">
+        </div>
+        <br>
+        <p>I've been a chess fan since I was a child. Recently I've begun to study the game more seriously.
+        Puzzles, opening theory and good practice. I've still got a long way to go!</p>
+
+
+        <p>Some of my chess models:</p>
+
+        <ul>
+            <!-- hyperlink each name to wikipedia -->
+            <li>Paul Morphy</li>
+            <li>Hikaru Nakamura</li>
+            <li>J.H. Blackburne</li>
+            <li>Bobby Fischer</li>
+            <li>John Bartholomew</li>
+        </ul>
+
+        <table>
+            <caption>My ELO rating at a glance:</caption>
+
+            <tr>
+                <th>Month</th>
+                <th>ELO</th>
+                <th>Games played</th>
+            </tr>
+            <tr>
+                <td>December</td>
+                <td>900</td>
+                <td>91</td>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>840</td>
+                <td>69</td>
+            </tr>
+            <tr>
+                <td>Febraury</td>
+                <td>848</td>
+                <td>3</td>
+            </tr>
+        </table>
+
+        <button type="button" class="btn btn-primary btn-lg" id="challenge">Add me!</button>
+
+        <p>Other things:</p>
+        <a href="trivia.html">A trivia game created by me!</a>
+        <br>
+        <a href="watch.html">My favorite little device :D</a>
+        <br>
+        <a href="books.html">My bookshelf</a>
+        <br>
+        <footer>
+            <p id="footerp">Author: KZ</p>
+            <a href="mailto:thezubul@gmail.com">Send me an email!</a>
+        </footer>
+    </body>
+        <!-- Javascript req fulfilled -->
+        <script>
+            let t1 =document.querySelector("#challenge");
+            t1.addEventListener("click", function()
+            {
+                alert("XD");
+            })
+        </script>
+</html>
