@@ -223,6 +223,9 @@ def register():
         elif not request.form.get("password") or not request.form.get("confirmation"):
             return apology("must provide, confirm password")
 
+        elif len(request.form.get("password")) < 4:
+            return apology("Password must be at least 4 characters")
+
         # Return apology if passwords do not match
         elif not request.form.get("password") == request.form.get("confirmation"):
             return apology("passwords do not match")
