@@ -96,7 +96,7 @@ def buy():
 
         # Shares must be a positive integer
         shares_buy = (request.form.get("shares"))
-        if shares_buy < 1 or not str(shares_buy).isdigit():
+        if int(shares_buy) < 1 or not str(shares_buy).isdigit():
             return apology("Invalid shares")
 
         # Formatting cash and purchase values
