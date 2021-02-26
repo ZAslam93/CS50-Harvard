@@ -208,11 +208,11 @@ def register():
         if not request.form.get("username"):
             return apology("must provide username", 403)
 
-        elif not request.form.get("password") or not request.form.get("password_confirm"):
+        elif not request.form.get("password") or not request.form.get("confirmation"):
             return apology("must provide, confirm password", 403)
 
         # Return apology if passwords do not match
-        elif not request.form.get("password") == request.form.get("password_confirm"):
+        elif not request.form.get("password") == request.form.get("confirmation"):
             return apology("passwords do not match", 409)
 
         # If form data is fulfilled
