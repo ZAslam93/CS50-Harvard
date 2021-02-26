@@ -193,6 +193,9 @@ def quote():
         if stock_quote:
             return render_template("quote.html", quote = stock_quote)
 
+        # Return apology if quote unsuccessful
+        else:
+            return apology("Invalid symbol")
     # If data submitted through GET
     else:
         return render_template("quote.html")
