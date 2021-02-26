@@ -50,14 +50,15 @@ def index():
     # Merge purchase data
     port_total = 0
     portfolio = []
-    rows = db.execute("SELECT symbol, SUM(shares) FROM purchases WHERE user_id= ? GROUP BY symbol HAVING SUM(shares) > 0", session["user_id"])
+    rows = db.execute(
+        "SELECT symbol, SUM(shares) FROM purchases WHERE user_id= ? GROUP BY symbol HAVING SUM(shares) > 0", session["user_id"])
 
     # Store data into portfolio
     for row in rows:
         p_stock = lookup(row["symbol"])
         portfolio.append({
             "symbol": p_stock["symbol"],
-            "name" : p_stock["name"],
+            "name": p_stock["name"],
             "shares": row["SUM(shares)"],
             "price": usd(p_stock["price"]),
             "total": usd(p_stock["price"] * row["SUM(shares)"])
@@ -110,7 +111,7 @@ def buy():
         else:
             # Record the purchase in table
             db.execute("INSERT INTO purchases(user_id, symbol, price, shares) VALUES(?, ?, ?, ?)", session["user_id"],
-            buy_stock["symbol"], buy_stock["price"], request.form.get("shares"))
+                       buy_stock["symbol"], buy_stock["price"], request.form.get("shares"))
 
             # Update user's cash
             db.execute("UPDATE users SET cash = ? WHERE id=?", cash_update, session["user_id"])
@@ -207,6 +208,7 @@ def quote():
     else:
         return render_template("quote.html")
 
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
@@ -236,7 +238,7 @@ def register():
         else:
             # Generate password hash, insert username and hash into db
             p_hash = generate_password_hash(request.form.get("password"))
-            username= request.form.get("username")
+            username = request.form.get("username")
             db.execute("INSERT INTO users(username, hash) VALUES(?, ?)", username, p_hash)
             flash("Registered!")
             return render_template("login.html")
@@ -250,7 +252,8 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    sell_list = db.execute("SELECT DISTINCT symbol FROM purchases WHERE user_id=? GROUP BY symbol HAVING SUM(shares) > 0", session["user_id"])
+    sell_list = db.execute(
+        "SELECT DISTINCT symbol FROM purchases WHERE user_id=? GROUP BY symbol HAVING SUM(shares) > 0", session["user_id"])
 
     # If data submitted through POST
     if request.method == "POST":
@@ -272,7 +275,7 @@ def sell():
         # Record transaction in purchases
         else:
             db.execute("INSERT INTO purchases(user_id, symbol, price, shares) VALUES(?, ?, ?, ?)", session["user_id"],
-            sell_stock["symbol"], sell_stock["price"], sell_trans)
+                       sell_stock["symbol"], sell_stock["price"], sell_trans)
 
             # Update user's cash
             sale = sell_stock["price"] * int(request.form.get("shares"))
