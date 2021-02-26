@@ -94,6 +94,9 @@ def buy():
         if not buy_stock:
             return apology("Invalid stock symbol")
 
+        if not request.form.get("shares").isnumeric() and request.form.get("shares") > 0:
+            return apology("Invalid shares")
+
         # Formatting cash and purchase values
         purchase = buy_stock["price"] * int(request.form.get("shares"))
         cash_query = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
