@@ -13,7 +13,7 @@
     </form>
     {% if quote %}
     <br>
-    <div>{{ quote["symbol"] }} | {{ quote["name"] }} | <b>{{ quote["price"]}}</b></div>
+    <div>{{ quote["symbol"] }} | {{ quote["name"] }} | <b>{{ quote_price }}</b></div>
     <form action="/buy" method="get">
         <button class="btn btn-primary" type="submit">Buy</button>
     </form>

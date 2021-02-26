@@ -189,13 +189,15 @@ def quote():
     if request.method == "POST":
         stock_quote = lookup(request.form.get("symbol"))
 
-        # If lookup succesful, convert and show info
-        if stock_quote:
-            return render_template("quote.html", quote = stock_quote)
-
-        # Return apology if quote unsuccessful
-        else:
+        # Return apology if quote fails
+        if not stock_quote:
             return apology("Invalid symbol")
+
+        # Lookup symbol and format
+        else:
+            quote_price = usd(stock_quote["price"])
+            return render_template("quote.html", quote_price=quote_price, quote=stock_quote)
+
     # If data submitted through GET
     else:
         return render_template("quote.html")
