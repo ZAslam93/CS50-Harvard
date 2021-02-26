@@ -95,7 +95,7 @@ def buy():
             return apology("Invalid stock symbol")
 
         # Shares must be a positive integer
-        shares_buy = int(request.form.get("shares"))
+        shares_buy = (request.form.get("shares"))
         if shares_buy < 1 or not str(shares_buy).isdigit():
             return apology("Invalid shares")
 
