@@ -87,12 +87,12 @@ def buy():
 
         # If fields are empty, return apology
         if not request.form.get("symbol") or not request.form.get("shares"):
-            return apology("Missing fields", 403)
+            return apology("Missing fields")
 
         # Check if stock symbol is valid, then process transaction
         buy_stock = lookup(request.form.get("symbol"))
         if not buy_stock:
-            return apology("Invalid stock symbol", 409)
+            return apology("Invalid stock symbol")
 
         # Formatting cash and purchase values
         purchase = buy_stock["price"] * int(request.form.get("shares"))
@@ -100,7 +100,7 @@ def buy():
         cash = int(cash_query[0]["cash"])
         cash_update = cash - purchase
         if cash_update < 0:
-            return apology("Insufficient funds", 409)
+            return apology("Insufficient funds")
 
         else:
             # Record the purchase in table
@@ -145,18 +145,18 @@ def login():
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("must provide username")
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("must provide password")
 
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-            return apology("invalid username and/or password", 403)
+            return apology("invalid username and/or password")
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
@@ -206,14 +206,14 @@ def register():
 
         # Return apology if user does not register properly
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("must provide username")
 
         elif not request.form.get("password") or not request.form.get("confirmation"):
-            return apology("must provide, confirm password", 403)
+            return apology("must provide, confirm password")
 
         # Return apology if passwords do not match
         elif not request.form.get("password") == request.form.get("confirmation"):
-            return apology("passwords do not match", 409)
+            return apology("passwords do not match")
 
         # If form data is fulfilled
         # Query database for user
@@ -221,7 +221,7 @@ def register():
 
         # If user exists, return apology
         if len(rows) != 0:
-            return apology("Username taken", 411)
+            return apology("Username taken")
 
         else:
             # Generate password hash, insert username and hash into db
@@ -247,7 +247,7 @@ def sell():
 
         # If forms not completed, return apology
         if not request.form.get("symbol") or not request.form.get("shares"):
-            return apology("Missing fields", 403)
+            return apology("Missing fields")
 
         # Lookup symbol
         sell_stock = lookup(request.form.get("symbol"))
@@ -257,7 +257,7 @@ def sell():
         share_update = shares_owned - int(request.form.get("shares"))
         # If formdata exceeds shares owned, return apology
         if share_update < 0:
-            return apology("Insufficient shares", 409)
+            return apology("Insufficient shares")
 
         # Record transaction in purchases
         else:
