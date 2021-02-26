@@ -94,8 +94,10 @@ def buy():
         if not buy_stock:
             return apology("Invalid stock symbol")
 
+        # Shares must be a positive integer
         shares_buy = int(request.form.get("shares"))
-        if shares_buy < 0 or not shares_buy.is_integer()
+        if shares_buy < 1 or not str(shares_buy).isdigit:
+            return apology("Invalid shares")
 
         # Formatting cash and purchase values
         purchase = buy_stock["price"] * int(request.form.get("shares"))
